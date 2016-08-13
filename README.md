@@ -2,6 +2,6 @@
 Scan instagram for popular trends
 
 ## Usage
-	* Run the following command : python intatrends.py *latitude* *longitude* *distance*
-	* Open browser and go to http://localhost:5000 to view the map
+* Run the following command : python intatrends.py *latitude* *longitude* *distance*
+* Open browser and go to http://localhost:5000 to view the map
 
