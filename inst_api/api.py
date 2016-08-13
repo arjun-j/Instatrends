@@ -57,7 +57,7 @@ class API:
 		self.write_filtered_json()
 		
 
-
-new_api = API(48.858844, 2.294351, 1000)
-new_api.get_data()
+if __name__ == '__main__':
+	new_api = API(48.858844, 2.294351, 1000)
+	new_api.get_data()
 
