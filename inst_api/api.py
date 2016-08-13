@@ -61,12 +61,3 @@ class API:
 new_api = API(48.858844, 2.294351, 1000)
 new_api.get_data()
 
-
-
-
-
-
-
-
-
-
