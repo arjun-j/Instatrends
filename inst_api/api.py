@@ -52,12 +52,12 @@ class API:
 		f.write(json_string)
 		f.close()
 	
-	def get_data(self):
+	def run(self):
 		self.get_raw_json()
 		self.write_filtered_json()
 		
 
 if __name__ == '__main__':
 	new_api = API(48.858844, 2.294351, 1000)
-	new_api.get_data()
+	new_api.run()
 

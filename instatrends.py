@@ -9,12 +9,12 @@ def main():
 	if(len(sys.argv) != 4 ):
 		print "Usage : ", sys.argv[0], "<lat> <long> <distance>"
 		sys.exit(1)
-	
+	args = sys.argv	
 	#crerate object of class API
-	loc_point = API(sys.argv[1], sys.argv[2], sys.argv[3])
+	loc_point = API(args[1], args[2], args[3])
 
 	#get the requuired media data and stre in JSON file
-	loc_point.get_data()
+	loc_point.run()
 
 	#run map local server
 	flask_server.app.run(debug=True)
