@@ -58,6 +58,6 @@ class API:
 		
 
 if __name__ == '__main__':
-	new_api = API(48.858844, 2.294351, 1000)
+	new_api = API(35.775445, -78.687043, 1000)
 	new_api.get_data()
 
