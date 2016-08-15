@@ -14,6 +14,8 @@ class API:
 		self.lng = lng
 		self.dist = dist
 		self.loc_list = []
+
+#--------------------------------------------------------------------------------------------------		
 		
 	def get_raw_json(self):			
 		#Get Request
@@ -33,17 +35,32 @@ class API:
 		
 		#Store info in list of dictionaries
 		for item in json_object['data']:
+			
 			dict = {}		
 			dict['media_type'] = item['type']
 			dict['location'] = item['location']
+			dict['tags'] = item['tags']
+			temp = item['caption']
+
+			if(temp is not None):
+				dict['caption_text'] = temp['text']
+
+			#print dict
 			self.loc_list.append(dict)
 			
+#------------------------------------------------------------------------------------------------
 
 	def write_filtered_json(self):
 		#Open JSON file	
 		if not os.path.exists(JSON_DIR):
 			os.makedirs(JSON_DIR)
+
 		f = open(os.path.join(JSON_DIR, "filtered_data.json"), "w")
+
+		filename = "filtered_data.json"
+
+		if not os.access(filename, os.W_OK):
+			print "Write access not permitted on %s" % filename
 		
 		#Convert list of dicts to JSON
 		json_string = json.dumps(self.loc_list)
@@ -51,10 +68,12 @@ class API:
 		#Write JSON file
 		f.write(json_string)
 		f.close()
+
 	
 	def run(self):
 		self.get_raw_json()
 		self.write_filtered_json()
+
 		
 
 if __name__ == '__main__':
